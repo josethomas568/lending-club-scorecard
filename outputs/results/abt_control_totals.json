@@ -1,0 +1,11 @@
+{
+  "row_count": 2260668,
+  "distinct_ids": 2260668,
+  "id_checksum": 1103681678534,
+  "sum__bad_12m": 65808,
+  "sum__fico": 1583797556.5,
+  "sum__loan_to_income": 1296391.31,
+  "nulls__bad_12m": 387378,
+  "min__issue_d": "2007-06-01",
+  "max__issue_d": "2018-12-01"
+}

@@ -1,0 +1,13 @@
+check,rows,expected,status
+"raw rows (DuckDB, independent)",2260701,,PASS
+raw rows (Spark),2260701,2260701.0,PASS
+non-loan rows dropped (footer/summary lines),33,,PASS
+duplicate loan ids,0,,PASS
+clean loans,2260668,2260668.0,PASS
+loans with unparseable issue_d,0,0.0,PASS
+loans table rows (re-read from parquet),2260668,2260668.0,PASS
+bureau table rows (re-read from parquet),2260668,2260668.0,PASS
+outcomes table rows (re-read from parquet),2260668,2260668.0,PASS
+joined loans ⋈ bureau ⋈ outcomes,2260668,2260668.0,PASS
+loans without bureau row,0,0.0,PASS
+loans without outcome row,0,0.0,PASS

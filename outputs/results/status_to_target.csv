@@ -1,0 +1,11 @@
+loan_status,bad_12m,count
+Charged Off,1,61701
+Charged Off,0,191024
+Current,0,489389
+Default,0,31
+Default,1,1
+Fully Paid,0,997254
+In Grace Period,0,5508
+Late (16-30 days),0,2809
+Late (31-120 days),0,14863
+Late (31-120 days),1,119

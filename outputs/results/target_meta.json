@@ -1,0 +1,9 @@
+{
+  "snapshot_date": "2019-03-01",
+  "abt_rows": 2260668,
+  "exclusions": {
+    "issued before min_issue_date": 42535,
+    "none": 2097423,
+    "joint application": 120710
+  }
+}

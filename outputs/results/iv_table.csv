@@ -1,0 +1,22 @@
+feature,label,iv,bins
+fico,FICO score at application,0.08585981753827629,7
+inq_last_6mths,Credit inquiries in last 6 months,0.07166542663532104,5
+dti,Debt-to-income ratio,0.05580483475375042,7
+verification_status,Income verification status,0.04805096559925574,3
+purpose,Loan purpose,0.04453790676714691,4
+loan_to_income,Loan amount relative to income,0.04216396121480183,7
+credit_hist_months,Length of credit history,0.040946196626152426,7
+annual_inc,Annual income,0.03874172118622314,7
+home_ownership,Home ownership,0.036560192002886995,3
+term,Loan term,0.03584246247504838,2
+mort_acc,Mortgage accounts,0.03012280444871312,7
+emp_length_yrs,Length of employment,0.018640905187911685,7
+revol_bal,Revolving balance,0.015905937021473776,7
+revol_util,Revolving utilization,0.006290703704277868,7
+total_acc,Total accounts on file,0.004417430634963044,7
+mths_since_last_delinq,Months since last delinquency,0.0028353478101197584,5
+loan_amnt,Loan amount requested,0.0020580392455474125,4
+open_acc,Number of open accounts,0.000593964236391385,4
+delinq_2yrs,Delinquencies in last 2 years,0.0005852602574970569,4
+pub_rec,Public records,0.0005412858944036468,3
+pub_rec_bankruptcies,Public-record bankruptcies,0.0004176648167414029,3

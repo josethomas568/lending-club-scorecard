@@ -1,0 +1,75 @@
+# Lending Club application scorecard — single source of truth for every stage.
+paths:
+  raw_csv: data/raw/accepted_2007_to_2018Q4.csv.gz   # Kaggle: wordsforthewise/lending-club
+  mart_dir: data/mart            # typed parquet tables written by Spark (loans, bureau, outcomes)
+  abt_path: data/abt/abt.parquet # analytic base table (joined, target, split)
+  model_dir: outputs/model
+  results_dir: outputs/results
+  figures_dir: outputs/figures
+  docs_dir: docs
+
+data_source: kaggle              # set to "synthetic" automatically by scripts/make_synthetic_sample.py
+
+spark:
+  master: local[*]
+  driver_memory: 4g
+
+bigquery:
+  project: YOUR_GCP_PROJECT_ID   # sandbox project id
+  dataset: lending_club
+  location: US
+
+target:
+  # Bad = charged off / default, or 90+ DPD, within `performance_months` of issue.
+  performance_months: 12
+  # The file is a single status snapshot with no monthly payment history, so the
+  # date the loan reached 90+ DPD is estimated as last_pymnt_d + lag
+  # (next due date missed one month after last payment, then 90 days).
+  dpd90_lag_months: 4
+  snapshot_date: auto            # auto = max(last_pymnt_d); or YYYY-MM-DD
+
+population:
+  min_issue_date: "2012-01-01"   # earlier vintages are small and pre-date current credit policy
+  application_type: Individual   # joint applications use co-borrower bureau fields
+  policy_code: 1
+
+split:
+  dev_start: "2012-01-01"
+  dev_end: "2015-12-31"
+  train_share: 0.75              # remainder of dev window = in-time test (hash of loan id)
+  oot_start: "2016-01-01"
+  oot_end: auto                  # auto = last issue month with a complete performance window
+
+scorecard:
+  base_score: 600
+  base_odds: 50                  # good:bad odds at the base score
+  pdo: 20
+  max_bins: 6
+  fine_bins: 20
+  min_bin_share: 0.05
+  min_iv: 0.02
+  max_iv: 0.50                   # above this, flag for a leakage review (not dropped)
+  max_corr: 0.70
+  max_pvalue: 0.01
+  rare_category_share: 0.01
+
+challenger:
+  learning_rate: 0.03
+  num_leaves: 31
+  min_child_samples: 500
+  feature_fraction: 0.8
+  bagging_fraction: 0.8
+  bagging_freq: 1
+  lambda_l2: 5.0
+  num_boost_round: 3000
+  early_stopping_rounds: 100
+  seed: 42
+
+monitoring:
+  psi_amber: 0.10
+  psi_red: 0.25
+  score_bins: 10
+
+implementation_test:
+  score_tolerance: 0          # integer points must match exactly
+  pd_tolerance: 1.0e-9

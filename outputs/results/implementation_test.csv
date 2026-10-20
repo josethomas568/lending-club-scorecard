@@ -1,0 +1,17 @@
+part,check,value,expected,status
+A,loans scored — development,2097423.0,,info
+A,loans scored — production SQL,2097423.0,2097423,PASS
+A,in development only,0.0,0,PASS
+A,in production only,0.0,0,PASS
+A,loans not scored on every characteristic,0.0,0,PASS
+A,score mismatches (exact integer match required),0.0,0,PASS
+A,max |score difference|,0.0,0,PASS
+A,max |PD difference|,0.0,,info
+A,characteristic-level points mismatches,0.0,0,PASS
+B,loans scored — development,2097423.0,,info
+B,loans scored — production script,2097423.0,2097423,PASS
+B,in development only,0.0,0,PASS
+B,in production only,0.0,0,PASS
+B,PD mismatches beyond 1e-09,0.0,0,PASS
+B,max |PD difference|,0.0,,info
+C,negative control: 'fico' bin edge 682 coded as < instead of <=; mismatches detected,157457.0,> 0,PASS

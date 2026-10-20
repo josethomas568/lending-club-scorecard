@@ -1,0 +1,9 @@
+data/
+outputs/model/*.parquet
+outputs/model/*.pkl
+__pycache__/
+.venv/
+.pytest_cache/
+spark-warehouse/
+metastore_db/
+derby.log

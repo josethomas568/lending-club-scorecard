@@ -1,0 +1,22 @@
+feature,decision,reason
+emp_length_yrs,dropped,IV 0.0186 < 0.02
+revol_bal,dropped,IV 0.0159 < 0.02
+revol_util,dropped,IV 0.0063 < 0.02
+total_acc,dropped,IV 0.0044 < 0.02
+mths_since_last_delinq,dropped,IV 0.0028 < 0.02
+loan_amnt,dropped,IV 0.0021 < 0.02
+open_acc,dropped,IV 0.0006 < 0.02
+delinq_2yrs,dropped,IV 0.0006 < 0.02
+pub_rec,dropped,IV 0.0005 < 0.02
+pub_rec_bankruptcies,dropped,IV 0.0004 < 0.02
+mort_acc,dropped,p-value 0.221 > 0.01
+fico,kept,"IV 0.086, coef -0.775, p 7.2e-181"
+inq_last_6mths,kept,"IV 0.072, coef -0.934, p 2.5e-273"
+dti,kept,"IV 0.056, coef -0.754, p 5e-124"
+verification_status,kept,"IV 0.048, coef -0.600, p 1.7e-61"
+purpose,kept,"IV 0.045, coef -0.981, p 3.8e-162"
+loan_to_income,kept,"IV 0.042, coef -0.497, p 4.7e-32"
+credit_hist_months,kept,"IV 0.041, coef -0.761, p 1.6e-89"
+annual_inc,kept,"IV 0.039, coef -0.396, p 1.3e-18"
+home_ownership,kept,"IV 0.037, coef -0.673, p 1.4e-61"
+term,kept,"IV 0.036, coef -0.870, p 5.2e-93"
