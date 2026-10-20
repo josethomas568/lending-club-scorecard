@@ -5,7 +5,7 @@
 | Model | 12-month application PD scorecard (champion candidate) with LightGBM challenger |
 | Data | Lending Club accepted loans 2007–2018 (Kaggle `accepted_2007_to_2018Q4`), snapshot 2019-03-01 |
 | Developer | Jose Thomas |
-| Version / date | v1.0 / 2026-10-19 |
+| Version / date | v1.0 / 2026-10-20 |
 | Status | Development — not approved for use |
 
 ## 1. Purpose and scope
@@ -36,7 +36,7 @@ joined back into an analytic base table. Each hop is counted; an independent Duc
 | loans without bureau row | 0 | 0.0 | PASS |
 | loans without outcome row | 0 | 0.0 | PASS |
 
-Warehouse mirror (DuckDB dry run; BigQuery not yet run): row counts, distinct ids, an id checksum, null counts, column sums and date ranges
+Warehouse mirror (BigQuery): row counts, distinct ids, an id checksum, null counts, column sums and date ranges
 are compared table by table against Spark's control totals.
 
 | Table | Spark rows | Warehouse rows | All checks |

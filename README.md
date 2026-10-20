@@ -14,7 +14,7 @@ Development 2012–2015 (844k loans, 3.1% bad); out-of-time Jan 2016–Mar 2018 
 | WoE scorecard (10 characteristics) | 0.661 | 0.321 | 0.229 |
 | LightGBM challenger | 0.684 | 0.367 | 0.263 |
 
-* Every row count reconciles from raw file to warehouse; the SQL rescoring matches all 2,097,423 development scores exactly.
+* Every row count reconciles from raw file to BigQuery (71/71 checks, 2,260,668 rows per table); the SQL rescoring matches all 2,097,423 development scores exactly.
 * Both models rank-order well out of time but under-predict the level (3.9% realised vs 2.8% predicted): risk at a given score rose in the 2016–17 vintages, so PDs need recalibration.
 * Full write-up, assumptions and decision log: [`docs/MDD.md`](docs/MDD.md).
 
